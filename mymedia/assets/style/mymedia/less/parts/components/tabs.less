@@ -1,0 +1,139 @@
+
+.tabs {
+    float: none;
+    list-style: none;
+    padding: 0;
+    margin: 75px auto;
+     &:after {
+    content: '';
+    display: table;
+    clear: both;    
+        }
+    input[type=radio] {
+        display:none;
+    }
+    label {
+    display: block;
+    position: relative;
+    float: left;
+    width: 20%;
+    color: #ccc;
+    font-size: 30px;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    line-height: 2;
+    cursor: pointer;
+    padding-bottom: @space * 2;
+    -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
+    transition: all 0.5s;
+    
+        span {
+             display: none;
+            }
+
+        }
+    }
+.tab-content {
+    display: none;
+    width: 100%;
+    float: left;
+    padding: @space * 2 @space;
+    box-sizing: border-box;
+    background-color:@dark-text;
+    text-align: @center;
+    .inner-tab-content{
+        max-width: 1024px;
+        margin:auto;
+        h3{
+            color: @light-color;
+            font-size: @font-size + @font-size/2;
+            margin-bottom: @space * 2;
+            letter-spacing: 1.2px;
+            font-weight: 300;
+        }
+        p{
+            line-height: 1.8;
+            font-size: @font-size - @font-size/8;
+            color: darken(@light-color, 13%);
+            margin-bottom: @space * 2;
+        }
+
+        .btn-dark{
+            height: 40px;
+            padding: @space/4 @space * 2;
+            background: #000000;
+            color: darken(@light-color, 20%);
+            border:0px solid;
+        }
+    }
+}
+.tab-content * {
+    -webkit-animation: scale 0.7s ease-in-out;
+    -moz-animation: scale 0.7s ease-in-out;
+    animation: scale 0.7s ease-in-out;
+}
+@keyframes scale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+    }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.5;
+    }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.tabs [id^="tab"]:checked + label {
+    background: #FFF;
+  
+}
+
+.tabs [id^="tab"]:checked + label:after{
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    width: 30px;
+    height: 30px;
+    background: #bb1e50;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: rotate(45deg);
+}
+#tab1:checked ~ #tab-content1,
+#tab2:checked ~ #tab-content2,
+#tab3:checked ~ #tab-content3,
+#tab4:checked ~ #tab-content4
+ {
+    display: block;
+}
+@media (min-width: 268px) {
+    .tabs{
+        width: 100%;
+        margin: @space * 3 auto 0;
+        label{
+            span {
+                width: 110px;
+                height: 110px;
+                border: 15px solid #bb1e50;
+                .round-borders(50%);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                }
+                p{
+                    font-size: @font-size + @font-size/2;
+                    color: @dark-gray-color;
+                    margin: @space/2 0px;
+                    font-weight: 500;
+                }
+            }
+            .first-tab-child{
+                margin-left: 8%;
+            }
+         }
+        }
